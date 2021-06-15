@@ -6,7 +6,6 @@ import com.services.sqs.BaseSQSClient;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.models.Customer;
-import jdk.internal.net.http.websocket.BuilderImpl;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sqs.model.*;
 
