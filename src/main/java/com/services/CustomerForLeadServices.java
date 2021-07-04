@@ -13,7 +13,7 @@ public class CustomerForLeadServices {
         List<PurchaseHistory> history = PurchaseRepo.getPurchases()
                 .stream().filter(p->p.getEmail().equals(customer.getEmail())).collect(Collectors.toList());
 
-        return new CustomerForLead(customer.getId(), customer.getfName(), customer.getlName(), customer.getdateOfBirth(), history);
+        return new CustomerForLead(customer.getId(), customer.getfName(), customer.getlName(), history);
     }
 
 }

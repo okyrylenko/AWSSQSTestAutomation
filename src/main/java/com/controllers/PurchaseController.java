@@ -1,4 +1,4 @@
-package com.services;
+package com.controllers;
 
 import com.aws.sqs.helpers.PurchaseRepo;
 import com.models.PurchaseHistory;

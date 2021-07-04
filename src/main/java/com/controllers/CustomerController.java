@@ -1,10 +1,11 @@
-package com.services;
+package com.controllers;
 
 import com.aws.sqs.controllers.SQSServiceCustomer;
 import com.aws.sqs.helpers.CustomerDecorator;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.models.Customer;
 import com.models.CustomerForLead;
+import com.services.CustomerForLeadServices;
+import com.services.CustomerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,10 +18,12 @@ public class CustomerController {
     CustomerController(){
         sqsCustomer = new SQSServiceCustomer();
     }
+
     @PostMapping(value = "/customer")
     public ResponseEntity customer(@RequestBody Customer customer) {
         try{
             customer = new CustomerDecorator(customer).setId();
+            customer = new CustomerService().convertNames(customer);
             SendMessageResponse response =  sqsCustomer.sendCustomerToQueue(customer);
             return new ResponseEntity<>(customer, HttpStatus.CREATED);
         }catch(Exception ex){

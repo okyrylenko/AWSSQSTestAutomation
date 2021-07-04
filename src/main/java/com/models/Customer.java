@@ -10,7 +10,6 @@ public class Customer {
     private int id;
     private String fName;
     private String lName;
-    private Date dateOfBirth;
 
     public String getEmail() {
         return email;
@@ -46,13 +45,5 @@ public class Customer {
 
     public void setlName(String lName) {
         this.lName = lName;
-    }
-
-    public Date getdateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setdateOfBirth(String dob) throws ParseException {
-        this.dateOfBirth = new SimpleDateFormat("dd/M/yyyy").parse(dob);
     }
 }
